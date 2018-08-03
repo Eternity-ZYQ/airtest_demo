@@ -19,7 +19,8 @@
 
 1. pip改源  pip install -U Airtest
 2. pip install -U pocoui  #poco 需要嵌入SDk到工程
-3. pip install assertpy
+3. pip install assertpy #高级断言库
+4. pip install opencv-python #图形识别库
 
 #### 使用说明
 
