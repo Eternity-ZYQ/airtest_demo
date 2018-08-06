@@ -6,6 +6,13 @@
 #### 软件架构
 
 - base 除了底层库以外的方法
+      -log_base.py 处理日志
+      -pic_base.py 处理截图
+      -platform_base.py 处理截图
+      -read_files.py 处理读取文件，包含读取excel,ini等
+- Conf 配置管理
+      -setting.py 处理公共import，不包含绝对路径引用
+      -config.ini 处理ini的数据驱动
 - util 工具类（包含移动端-拆分成游戏和非游戏，网页端）
 - test_case:对应包名-test_*.py
 - Conf:读取配置的
