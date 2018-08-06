@@ -6,10 +6,11 @@
 #### 软件架构
 
 - base 除了底层库以外的方法
-      -log_base.py 处理日志
-      -pic_base.py 处理截图
-      -platform_base.py 处理截图
-      -read_files.py 处理读取文件，包含读取excel,ini等
+      - log_base.py 处理日志
+      - pic_base.py 处理截图
+      - platform_base.py 处理截图
+      - read_files.py 处理读取文件，包含读取excel,ini等
+      - opencv_base.py 图形识别方面
 - Conf 配置管理
       -setting.py 处理公共import，不包含绝对路径引用
       -config.ini 处理ini的数据驱动
