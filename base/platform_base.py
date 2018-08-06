@@ -6,14 +6,19 @@ def system_plat():
     plat =platform.system()
     if plat == "Windows":
         pass
+    elif plat == 'Linux':
+        pass
     else:
         pass
+    return plat
 
 def win_linux_platform():
     "判断平台的处理"
     if sys.platform.startswith('linux'):
         pass
     elif sys.platform.startswith('win'):
+        pass
+    else:#sys.platform.startswith('mac')
         pass
     return sys.platform
 
@@ -25,6 +30,9 @@ def check_task(name):
     """
     if win_linux_platform() =="Windows":
         return subprocess.check_output('tasklist | findstr %s'%name, shell=True)
+    elif win_linux_platform() =="linux":
+        command = 'ps aux |grep %s' % name
+        return subprocess.check_output(command, shell=True)
     else:
         command = 'ps aux |grep %s' % name
         return subprocess.check_output(command, shell=True)
@@ -59,11 +67,35 @@ def show_packages(path):
                 packages.append(
                     re.sub('^[^A-z0-9_]', '', root.replace('/', '\\'))
                 )
-            elif win_linux_platform() =="Windows":
+            if win_linux_platform() =="Windows":
+                packages.append(
+                    re.sub('^[^A-z0-9_]', '', root.replace('\\', '\\'))
+                )
+            else:
                 packages.append(
                     re.sub('^[^A-z0-9_]', '', root.replace('\\', '\\'))
                 )
     return packages
+
+
+import psutil
+
+def find_process_pass(proname):
+    """
+    判断进程是否存在，如果存在则维持，如果不存在重新启动
+    :param proname:
+    :return:
+    """
+    pid_list = psutil.pids()
+    for pid in pid_list:
+        if psutil.Process(pid).name() == proname:
+            return pid
+    else:
+        pass
+
+print(find_process_pass('notepad++.exe'))
+
+
 
 
 import threading

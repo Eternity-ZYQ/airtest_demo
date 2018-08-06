@@ -68,6 +68,7 @@ def open_json(key):
         value = data.get(str(key))
         return value
 
+
 def apk_path():
     """
     读取apk路径
@@ -75,4 +76,6 @@ def apk_path():
     """
     _apk =path.replace("\\","/")+"/test_tools/"+str(apkname)+".apk"
     return _apk
+
+
 
